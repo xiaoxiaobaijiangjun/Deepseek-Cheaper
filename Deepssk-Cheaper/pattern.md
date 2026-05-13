@@ -96,7 +96,7 @@ Thinker + Executor 流程：
 
 权限设计原则：
 - **最小权限**：每个角色只拥有完成职责所必须的权限
-- **降级路径**：Architect 保留 write（ask），紧急情况可自己动手
+- **无降级路径**：Architect 没有 write 权限，必须通过 Coder 执行
 - **单向调用**：Coder 不能调 Architect，避免循环
 
 ---
@@ -325,7 +325,7 @@ Coder 提交 Summary（包含失败信息）
        ↓
 Architect 分析失败原因：
   ├── 任务包有误 → 修正任务包 → 重新调用 Coder
-  ├── Coder 能力不足 → 自己动手（紧急可动）
+  ├── Coder 能力不足 → 细化任务包 → 重新调用 Coder
   └── 环境问题 → 告知用户
 ```
 
